@@ -13,11 +13,13 @@ function DescriptionBox() {
           <img src="./images/rate.png" alt="rate" /> 97%
         </span>
       </span>
+
       <p className="w-72 text-sm font-normal">
         {`John Wick is on the run after killing a member of the international
         assassins' guild, and with a $14 million price tag on his head, he is
         the target of hit men and women everywhere.`}
       </p>
+
       <button className="flex w-40 items-center gap-2 rounded-md bg-rose-700 px-[0.3rem] py-4">
         <span>
           <img src="/images/Play.png" alt="play-icon" />

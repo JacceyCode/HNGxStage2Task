@@ -1,7 +1,11 @@
-import Header from "./Header";
+import Movies from "./Movies";
 
 function Home() {
-  return <Header />;
+  return (
+    <main className="mx-5 px-14 py-7">
+      <Movies />
+    </main>
+  );
 }
 
 export default Home;
