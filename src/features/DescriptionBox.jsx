@@ -6,11 +6,11 @@ function DescriptionBox() {
       </h1>
       <span className="inline-flex h-4 w-48 items-center justify-between font-normal">
         <span className="inline-flex items-center gap-2">
-          <img src="./images/imdb.png" alt="imdb" /> 86.0 / 100
+          <img src="/images/imdb.png" alt="imdb" /> 86.0 / 100
         </span>
 
         <span className="inline-flex items-center gap-2">
-          <img src="./images/rate.png" alt="rate" /> 97%
+          <img src="/images/rate.png" alt="rate" /> 97%
         </span>
       </span>
 

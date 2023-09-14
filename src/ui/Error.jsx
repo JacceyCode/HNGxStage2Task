@@ -7,7 +7,7 @@ function Error() {
   return (
     <div>
       <h1>Ooooops, Something went wrong 😢</h1>
-      <p>{error.data || error.message}</p>
+      <p>{error.data || error.status_message}</p>
 
       <ErrorButton>&larr; Go back</ErrorButton>
     </div>

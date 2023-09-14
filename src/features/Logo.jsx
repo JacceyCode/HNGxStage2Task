@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Logo() {
   return (
-    <section className="inline-flex items-center gap-6">
-      <img src="./images/tv.png" alt="logo" />
-      <span>MovieBox</span>
-    </section>
+    <Link to="/" className="inline-flex items-center gap-4">
+      <img src="/images/tv.png" alt="logo" />
+      <span className="text-2xl font-extrabold">MovieBox</span>
+    </Link>
   );
 }
 
