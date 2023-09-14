@@ -8,7 +8,7 @@ function PlayVideo() {
   const src = "#";
   return (
     <main className="relative h-96 w-full">
-      <video className="h-full w-full" controls>
+      <video className="h-full w-full rounded-2xl" controls>
         <source src={src} type="video/mp4" />
         Sorry, your browser does not support embedded videos.
       </video>

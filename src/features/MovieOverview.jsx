@@ -40,7 +40,7 @@ function MovieOverview() {
       </section>
       <section
         data-testid="movie-overview"
-        className="absolute left-0 mt-6 w-[70%] space-y-4 border-2"
+        className="absolute left-0 mt-6 w-[70%] space-y-4"
       >
         <p className="font-['Poppins'] text-2xl font-semibold text-zinc-800">
           {tagline}
@@ -50,11 +50,11 @@ function MovieOverview() {
         </p>
         <p className="font-['Poppins'] font-normal text-zinc-600">
           Production company :{" "}
-          <span className="text-rose-700">{company[0].name}</span>
+          <span className="text-rose-700">{company[0]?.name}</span>
         </p>
         <p className="font-['Poppins'] font-normal text-zinc-600">
           Production country :{" "}
-          <span className="text-rose-700">{country[0].name}</span>
+          <span className="text-rose-700">{country[0]?.name}</span>
         </p>
 
         <section className="relative flex h-14 w-[80%] items-center rounded-lg border border-stone-300 bg-white bg-opacity-80 ">

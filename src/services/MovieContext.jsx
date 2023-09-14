@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
-import { API, API_KEY } from "./apiMovies";
+import { getPopularMovies } from "./apiMovies";
 
 const MovieContext = createContext();
 
@@ -14,7 +14,7 @@ function MovieProvider({ children }) {
 
   useEffect(function () {
     async function loadMovies() {
-      const res = await fetch(`${API}${API_KEY}`);
+      const res = await getPopularMovies();
       const { results } = await res.json();
       const topResults = results.slice(0, 10);
       setPopularMovies(topResults);
