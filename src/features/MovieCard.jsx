@@ -21,7 +21,6 @@ function MovieCard({ movie }) {
       const res = await getDetails(id);
       const data = await res.json();
       setMovieData(data);
-      console.log(data);
       return data;
     } catch {
       // throw Error();

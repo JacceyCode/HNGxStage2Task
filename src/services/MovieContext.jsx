@@ -11,7 +11,7 @@ function MovieProvider({ children }) {
   const [movieData, setMovieData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchError, setSearchError] = useState(false);
+  const [searchError, setSearchError] = useState("");
 
   useEffect(function () {
     async function loadMovies() {

@@ -16,7 +16,6 @@ function MovieOverview() {
   } = movieData;
 
   const utcDate = new Date(date).toUTCString();
-  console.log(genres);
 
   return (
     <section className="relative mx-auto mt-6 w-[99%]">

@@ -5,32 +5,24 @@ import { getMovie } from "../services/apiMovies";
 
 function SearchMovies() {
   const navigate = useNavigate();
-  const {
-    setSearchedMovie,
-    setSearchError,
-    setIsLoading,
-    isLoading,
-    query,
-    setQuery,
-    // searchError,
-  } = useMovies();
+  const { setSearchedMovie, setIsLoading, isLoading, query, setQuery } =
+    useMovies();
 
   async function searchMovie(e) {
     try {
       e.preventDefault();
       setIsLoading(true);
-      setSearchError(false);
 
       const res = await getMovie(query);
+      if (!res.ok) throw new Error();
       const { results } = await res.json();
       const result = results.slice(0, 10);
-      // console.log(result);
-      // if (result.length === 0) throw Error();
       setSearchedMovie(result);
       navigate("/movies");
-    } catch {
-      // setSearchError(true);
-      // throw Error();
+    } catch (err) {
+      // setSearchError(err.status_message);
+      // console.error(err);
+      throw new Error();
     } finally {
       setQuery("");
       setIsLoading(false);
