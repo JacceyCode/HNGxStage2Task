@@ -16,13 +16,13 @@ function Movies() {
       ) : (
         <section>
           <SideNav />
-          <section className="absolute right-0 w-[85%] pl-6">
+          <section className="absolute right-0 w-[85%] pl-2">
             <section className="mt-4 flex items-center justify-between rounded-lg bg-slate-400 pr-8">
               <SearchMovies />
               <Menu />
             </section>
 
-            <section className="mt-8 pl-4">
+            <section className="mt-8">
               <section className="flex items-center justify-between">
                 <h2 className="text-4xl font-bold leading-normal text-black">
                   Your search result is here...
