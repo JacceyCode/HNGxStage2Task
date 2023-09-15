@@ -11,14 +11,17 @@ function MovieProvider({ children }) {
   const [movieData, setMovieData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchError, setSearchError] = useState(false);
 
   useEffect(function () {
     async function loadMovies() {
+      setIsLoading(true);
       const res = await getPopularMovies();
       const { results } = await res.json();
       const topResults = results.slice(0, 10);
       setPopularMovies(topResults);
     }
+    setIsLoading(false);
     loadMovies();
   }, []);
 
@@ -30,6 +33,8 @@ function MovieProvider({ children }) {
         movieData,
         isLoading,
         query,
+        searchError,
+        setSearchError,
         setQuery,
         setIsLoading,
         setMovieData,

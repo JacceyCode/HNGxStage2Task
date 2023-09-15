@@ -5,7 +5,10 @@ function ErrorButton({ children }) {
   const navigate = useNavigate();
 
   return (
-    <button className="" onClick={() => navigate("/")}>
+    <button
+      className="rounded-full border-4 bg-red-400 p-4 duration-200 hover:scale-110"
+      onClick={() => navigate(-1)}
+    >
       {children}
     </button>
   );

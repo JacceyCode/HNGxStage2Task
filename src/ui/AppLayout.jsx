@@ -1,14 +1,8 @@
-import { Outlet, useNavigation } from "react-router-dom";
-import Loader from "./Loader";
+import { Outlet } from "react-router-dom";
 
 function AppLayout() {
-  const navigation = useNavigation();
-  const isLoading = navigation.status === "loading";
-
   return (
     <main className="relative bg-white font-sans">
-      {isLoading && <Loader />}
-
       <Outlet />
     </main>
   );

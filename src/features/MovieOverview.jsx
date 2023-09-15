@@ -2,7 +2,6 @@ import { useMovies } from "../services/MovieContext";
 
 function MovieOverview() {
   const { movieData } = useMovies();
-
   const {
     title,
     release_date: date,
@@ -16,17 +15,20 @@ function MovieOverview() {
     production_countries: country,
   } = movieData;
 
+  const utcDate = new Date(date).toUTCString();
+  console.log(genres);
+
   return (
     <section className="relative mx-auto mt-6 w-[99%]">
-      <section className="relative flex items-center space-x-2 font-['Poppins'] text-2xl font-medium text-neutral-700">
+      <section className="relative flex items-center space-x-2 font-['Poppins'] text-xl font-medium text-neutral-700">
         <span data-testid="movie-title">{title}</span>
         <span>&middot;</span>
-        <span data-testid="movie-release-date">{date}</span>
+        <span data-testid="movie-release-date">{utcDate}</span>
         <span>&middot;</span>
         <span>PG-13</span>
         <span>&middot;</span>
-        <span data-testid="movie-runtime">{runtime} min</span>
-        {genres.map((genre) => (
+        <span data-testid="movie-runtime">{runtime}</span>
+        {genres?.map((genre) => (
           <span
             className="flex h-7 w-auto items-center justify-center rounded-2xl border border-pink-100 p-2 font-['Poppins'] text-base font-medium text-red-700"
             key={genre.id}

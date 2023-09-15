@@ -17,15 +17,16 @@ function MovieCard({ movie }) {
   async function loadMoviedetail(id) {
     try {
       setIsLoading(true);
+      navigate(`/movies/${id}`);
       const res = await getDetails(id);
       const data = await res.json();
       setMovieData(data);
+      console.log(data);
       return data;
     } catch {
       // throw Error();
     } finally {
       setIsLoading(false);
-      navigate(`/movies/${id}`);
     }
   }
 
@@ -34,31 +35,40 @@ function MovieCard({ movie }) {
       onClick={() => loadMoviedetail(id)}
       // to={`/movies/${id}`}
       data-testid="movie-card"
-      className="mb-14 flex w-80 flex-col items-start gap-3"
+      className="mb-14 flex w-80 flex-col items-start gap-3 duration-200 hover:scale-105"
     >
-      <section className="relative w-full">
-        <img
-          className="h-96 w-full"
-          loading="lazy"
-          data-testid="movie-poster"
-          src={`${imageUrl}${imagePath}`}
-          alt={title}
-        />
-        {/* <span className="absolute left-4 top-4 rounded-xl bg-gray-200 p-1 text-xs font-bold text-gray-900">
+      {imagePath ? (
+        <section className="relative w-full">
+          <img
+            className="h-[30rem] w-full"
+            loading="lazy"
+            data-testid="movie-poster"
+            src={`${imageUrl}${imagePath}`}
+            alt={title}
+          />
+          {/* <span className="absolute left-4 top-4 rounded-xl bg-gray-200 p-1 text-xs font-bold text-gray-900">
           MOVIE SERIES
-        </span> */}
-        <button
-          className="absolute right-4 top-4 rounded-full bg-white
-          duration-300 hover:rotate-180 hover:scale-150 hover:bg-black"
+          </span> */}
+          <button
+            className="absolute right-4 top-4 rounded-full bg-white
+          duration-300 hover:translate-y-2 hover:scale-150 hover:bg-rose-400"
+          >
+            <img className="w-8" src="./images/Heart.png" alt="heart-icon" />
+          </button>
+        </section>
+      ) : (
+        <span
+          data-testid="movie-poster"
+          className="flex h-[30rem] w-full items-center justify-center border-2 border-red-400 p-4 font-serif text-2xl font-extrabold"
         >
-          <img className="w-8" src="./images/Heart.png" alt="heart-icon" />
-        </button>
-      </section>
+          <span>🚫</span> Sorry, no image was found.
+        </span>
+      )}
       <span
         data-testid="movie-release-date"
         className="w-full text-lg font-medium leading-normal text-gray-600"
       >
-        {`Release date: ${date}`}
+        {date}
       </span>
       <h3
         data-testid="movie-title"

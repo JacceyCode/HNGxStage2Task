@@ -10,7 +10,6 @@ function Home() {
   return (
     <section>
       <Hero />
-
       <main className="mt-5 px-14 py-7">
         <section className="flex items-center justify-between">
           <h2 className="text-4xl font-bold leading-normal text-black">
@@ -30,7 +29,6 @@ function Home() {
           ))}
         </section>
       </main>
-
       <Footer />
     </section>
   );

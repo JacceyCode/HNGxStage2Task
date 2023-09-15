@@ -1,28 +1,40 @@
 import { useNavigate } from "react-router-dom";
 import { useMovies } from "../services/MovieContext";
-import Loader from "../ui/Loader";
+import Loader from "./Loader";
 import { getMovie } from "../services/apiMovies";
 
 function SearchMovies() {
   const navigate = useNavigate();
-  const { setSearchedMovie, setIsLoading, isLoading, query, setQuery } =
-    useMovies();
+  const {
+    setSearchedMovie,
+    setSearchError,
+    setIsLoading,
+    isLoading,
+    query,
+    setQuery,
+    // searchError,
+  } = useMovies();
 
   async function searchMovie(e) {
     try {
       e.preventDefault();
       setIsLoading(true);
+      setSearchError(false);
 
       const res = await getMovie(query);
       const { results } = await res.json();
       const result = results.slice(0, 10);
+      // console.log(result);
+      // if (result.length === 0) throw Error();
       setSearchedMovie(result);
       navigate("/movies");
     } catch {
+      // setSearchError(true);
       // throw Error();
     } finally {
       setQuery("");
       setIsLoading(false);
+      // console.log(searchError);
     }
   }
 
@@ -42,7 +54,7 @@ function SearchMovies() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         required
-        disabled={isLoading}
+        // disabled={isLoading}
       />
       <button>
         <img src="/images/Search.png" alt="search-icon" />
