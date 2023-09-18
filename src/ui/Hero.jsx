@@ -4,9 +4,9 @@ import PaginationBox from "../features/PaginationBox";
 
 function Hero() {
   return (
-    <section className={`relative h-[600px] bg-cover font-bold text-white`}>
+    <section className="relative h-[30rem] w-full bg-cover font-bold text-white md:h-[600px]">
       <img
-        className="relative h-full w-screen bg-cover bg-center bg-no-repeat brightness-50"
+        className="relative h-full w-full bg-cover bg-center bg-no-repeat brightness-50"
         loading="lazy"
         src="/images/Poster.png"
         alt="Banner"

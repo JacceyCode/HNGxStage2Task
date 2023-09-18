@@ -1,6 +1,6 @@
 function PaginationBox() {
   return (
-    <section className="absolute right-6 top-60 flex h-28 w-9 items-center gap-1">
+    <section className="absolute right-6 top-40 flex h-28 w-9 items-center gap-1 md:top-60">
       <span className="h-[0.2rem] w-5 rounded-md bg-white"></span>
       <span className="inline-flex flex-col items-center gap-2 text-gray-400">
         <span>1</span>

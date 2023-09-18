@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 
 function Menu() {
   return (
-    <section className="inline-flex items-center gap-2">
-      <Link className="text-2xl font-extrabold text-gray-100" to="">
+    <section className="flex items-center lg:gap-4">
+      <Link
+        className="hidden lg:flex lg:text-2xl lg:font-extrabold lg:text-gray-100"
+        to=""
+      >
         Sign in
       </Link>
       <button className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700">

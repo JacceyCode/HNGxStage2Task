@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 function AppLayout() {
   return (
-    <main className="relative bg-white font-sans">
+    <main className="relative w-screen bg-white font-sans">
       <Outlet />
     </main>
   );

@@ -34,7 +34,7 @@ function MovieCard({ movie }) {
       onClick={() => loadMoviedetail(id)}
       // to={`/movies/${id}`}
       data-testid="movie-card"
-      className="mb-14 flex w-72 flex-col items-start gap-2 duration-200 hover:scale-105"
+      className="mx-auto mb-14 flex w-fit flex-col items-start gap-2 duration-200 hover:scale-105 md:w-72"
     >
       {imagePath ? (
         <section className="relative w-full">

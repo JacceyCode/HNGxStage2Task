@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function QuizBox() {
   return (
-    <section className="Rectangle11 flex h-52 w-44 flex-col items-center justify-center space-y-2 rounded-2xl border border-rose-700 border-opacity-70 bg-pink-100 bg-opacity-40 px-6 font-['Poppins']">
+    <section className="hidden h-52 w-44 flex-col items-center justify-center space-y-2 rounded-2xl border border-rose-700 border-opacity-70 bg-pink-100 bg-opacity-40 px-6 font-['Poppins'] lg:flex">
       <p className="text-base font-semibold text-zinc-800 text-opacity-80">
         Play movie quizes and earn free tickets
       </p>

@@ -1,7 +1,7 @@
 function DescriptionBox() {
   return (
-    <aside className="absolute left-[6rem] top-[10rem] inline-flex h-auto w-auto flex-col items-start gap-4">
-      <h1 className="w-[25.25rem] text-5xl/[3.5rem] font-medium">
+    <aside className="absolute left-1 top-24 flex h-auto w-[80%] flex-col items-start gap-4 border-4 border-yellow-400 md:left-4 lg:left-[6rem] lg:top-[10rem]">
+      <h1 className="w-[25.25rem] text-4xl font-normal md:text-5xl/[3.5rem] md:font-medium">
         John Wick 3 : <br /> Parabellum
       </h1>
       <span className="inline-flex h-4 w-48 items-center justify-between font-normal">
@@ -14,7 +14,7 @@ function DescriptionBox() {
         </span>
       </span>
 
-      <p className="w-72 text-sm font-normal">
+      <p className="w-full text-sm font-normal">
         {`John Wick is on the run after killing a member of the international
         assassins' guild, and with a $14 million price tag on his head, he is
         the target of hit men and women everywhere.`}

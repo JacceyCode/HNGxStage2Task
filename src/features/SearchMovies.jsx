@@ -12,7 +12,6 @@ function SearchMovies() {
     try {
       e.preventDefault();
       setIsLoading(true);
-
       const res = await getMovie(query);
       if (!res.ok) throw new Error();
       const { results } = await res.json();
@@ -20,13 +19,10 @@ function SearchMovies() {
       setSearchedMovie(result);
       navigate("/movies");
     } catch (err) {
-      // setSearchError(err.status_message);
-      // console.error(err);
       throw new Error();
     } finally {
       setQuery("");
       setIsLoading(false);
-      // console.log(searchError);
     }
   }
 
@@ -35,11 +31,11 @@ function SearchMovies() {
   return (
     <form
       onSubmit={searchMovie}
-      className="flex w-[33rem] items-center justify-between rounded-md border-2 border-gray-200 px-2 py-2"
+      className="flex w-60 items-center justify-between rounded-md border-2 border-gray-200 py-2 md:w-[33rem] md:px-2"
       method="GET"
     >
       <input
-        className="flex-grow bg-transparent pl-4 outline-none placeholder:font-normal placeholder:text-white"
+        className="flex bg-transparent pl-2 outline-none placeholder:font-thin placeholder:text-white md:pl-4 md:placeholder:font-normal"
         type="text"
         placeholder="What do you want to watch?"
         name="movie"
@@ -48,7 +44,7 @@ function SearchMovies() {
         required
         // disabled={isLoading}
       />
-      <button>
+      <button className="pr-2">
         <img src="/images/Search.png" alt="search-icon" />
       </button>
     </form>
