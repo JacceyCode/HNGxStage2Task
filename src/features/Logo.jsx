@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-4">
+    <Link to="/" className="flex items-center gap-2">
       <img
         src="/images/tv.png"
-        className="flex h-12 w-12 items-center justify-center rounded-full"
+        className="flex h-10 w-10 items-center justify-center rounded-full"
         alt="logo"
       />
-      <span className="hidden lg:inline-flex lg:text-2xl lg:font-extrabold">
+      <span className="hidden sm:flex lg:text-2xl lg:font-extrabold">
         MovieBox
       </span>
     </Link>

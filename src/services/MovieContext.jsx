@@ -18,6 +18,7 @@ function MovieProvider({ children }) {
       setIsLoading(true);
       const res = await getPopularMovies();
       const { results } = await res.json();
+      console.log(results);
       const topResults = results.slice(0, 10);
       setPopularMovies(topResults);
     }

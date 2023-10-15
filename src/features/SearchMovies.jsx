@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useMovies } from "../services/MovieContext";
 import Loader from "./Loader";
 import { getMovie } from "../services/apiMovies";
+import { HiOutlineSearch } from "react-icons/hi";
 
 function SearchMovies() {
   const navigate = useNavigate();
@@ -13,13 +14,13 @@ function SearchMovies() {
       e.preventDefault();
       setIsLoading(true);
       const res = await getMovie(query);
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Sorry, Movie not found!");
       const { results } = await res.json();
       const result = results.slice(0, 10);
       setSearchedMovie(result);
       navigate("/movies");
     } catch (err) {
-      throw new Error();
+      throw new Error(err.message);
     } finally {
       setQuery("");
       setIsLoading(false);
@@ -31,21 +32,21 @@ function SearchMovies() {
   return (
     <form
       onSubmit={searchMovie}
-      className="flex w-60 items-center justify-between rounded-md border-2 border-gray-200 py-2 md:w-[33rem] md:px-2"
+      className="flex w-60 items-center justify-between rounded-md border-2 border-gray-200 p-1 md:w-[33rem] md:p-2"
       method="GET"
     >
       <input
-        className="flex bg-transparent pl-2 outline-none placeholder:font-thin placeholder:text-white md:pl-4 md:placeholder:font-normal"
+        className="w-full bg-transparent outline-none  placeholder:text-sm placeholder:font-thin placeholder:text-white md:placeholder:text-lg md:placeholder:font-normal"
         type="text"
-        placeholder="What do you want to watch?"
+        placeholder="Search your movie"
         name="movie"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         required
-        // disabled={isLoading}
+        disabled={isLoading}
       />
-      <button className="pr-2">
-        <img src="/images/Search.png" alt="search-icon" />
+      <button className="h-6 w-6">
+        <HiOutlineSearch />
       </button>
     </form>
   );

@@ -4,16 +4,12 @@ import PaginationBox from "../features/PaginationBox";
 
 function Hero() {
   return (
-    <section className="relative h-[30rem] w-full bg-cover font-bold text-white md:h-[600px]">
-      <img
-        className="relative h-full w-full bg-cover bg-center bg-no-repeat brightness-50"
-        loading="lazy"
-        src="/images/Poster.png"
-        alt="Banner"
-      />
+    <section className="flex h-screen flex-col gap-28 bg-[url('/images/Poster.png')] bg-cover bg-center bg-no-repeat font-bold text-white sm:h-full md:h-[45rem] md:gap-28 lg:gap-36">
       <Header />
-      <DescriptionBox />
-      <PaginationBox />
+      <section className="flex items-center justify-between px-2 md:pl-10 md:pr-2 lg:pl-24 lg:pr-10">
+        <DescriptionBox />
+        <PaginationBox />
+      </section>
     </section>
   );
 }
