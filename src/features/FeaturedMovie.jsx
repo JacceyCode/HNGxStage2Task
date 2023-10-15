@@ -8,8 +8,8 @@ function FeaturedMovie() {
   //   const { popularMovies } = useMovies();
 
   return (
-    <main className="flex w-full flex-col gap-14 px-28">
-      <section className="flex items-center justify-between border-2">
+    <main className="flex w-full flex-col gap-14 px-1 lg:px-28">
+      <section className="flex items-center justify-between">
         <h2 className="text-xl font-bold leading-normal text-black md:text-4xl">
           Featured Movie
         </h2>
@@ -25,7 +25,7 @@ function FeaturedMovie() {
         </Link>
       </section>
 
-      <section className="grid grid-cols-4 gap-20 border-2">
+      <section className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {/* {popularMovies.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))} */}
