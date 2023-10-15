@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useMovies } from "../services/MovieContext";
-import Loader from "./Loader";
+import Loader from "../features/Loader";
 import { getMovie } from "../services/apiMovies";
 import { HiOutlineSearch } from "react-icons/hi";
 

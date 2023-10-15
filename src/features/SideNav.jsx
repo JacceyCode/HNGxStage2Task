@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+import Logo from "../ui/Logo";
 import { NavLink } from "react-router-dom";
 import QuizBox from "./QuizBox";
 

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import MovieCard from "../features/MovieCard";
 import { useMovies } from "../services/MovieContext";
 import SideNav from "../features/SideNav";
-import SearchMovies from "../features/SearchMovies";
-import Menu from "../features/Menu";
+import SearchMovies from "../ui/SearchMovies";
+import Menu from "../ui/Menu";
 import Loader from "../features/Loader";
 
 function Movies() {
