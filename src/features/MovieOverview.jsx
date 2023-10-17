@@ -1,8 +1,12 @@
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { useMovies } from "../context/MovieContext";
+import Loader from "./Loader";
 
 function MovieOverview() {
   const { movieData } = useMovies();
+
+  if (!movieData) return <Loader />;
+
   const {
     title,
     release_date: date,
