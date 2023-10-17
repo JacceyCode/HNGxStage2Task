@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useMovies } from "../services/MovieContext";
-import Loader from "../features/Loader";
 import { getMovie } from "../services/apiMovies";
 import { HiOutlineSearch } from "react-icons/hi";
 
 function SearchMovies() {
   const navigate = useNavigate();
-  const { setSearchedMovie, setIsLoading, isLoading, query, setQuery } =
-    useMovies();
+  const { setSearchedMovie, setIsLoading, query, setQuery } = useMovies();
 
   async function searchMovie(e) {
     try {
@@ -16,7 +14,8 @@ function SearchMovies() {
       const res = await getMovie(query);
       if (!res.ok) throw new Error("Sorry, Movie not found!");
       const { results } = await res.json();
-      const result = results.slice(0, 10);
+      console.log(results);
+      const result = results.slice(0, 12);
       setSearchedMovie(result);
       navigate("/movies");
     } catch (err) {
@@ -26,8 +25,6 @@ function SearchMovies() {
       setIsLoading(false);
     }
   }
-
-  if (isLoading) <Loader />;
 
   return (
     <form
@@ -43,7 +40,6 @@ function SearchMovies() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         required
-        disabled={isLoading}
       />
       <button className="h-6 w-6">
         <HiOutlineSearch />

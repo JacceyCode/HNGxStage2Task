@@ -16,7 +16,6 @@ function MovieCard({ movie }) {
     popularity,
     id,
     vote_average: avg,
-    vote_count: vote,
   } = movie;
 
   async function loadMoviedetail(id) {
@@ -104,19 +103,28 @@ function MovieCard({ movie }) {
       data-testid="movie-card"
       className="flex flex-col items-start gap-2"
     >
-      <section className="relative flex h-[30rem] w-full lg:h-[22rem] xl:h-[27rem]">
-        <img
-          className=""
-          loading="lazy"
-          data-testid="movie-poster"
-          src={`${imageUrl}${imagePath}`}
-          alt={title}
-        />
+      {imagePath ? (
+        <section className="relative flex h-[30rem] w-full lg:h-[22rem] xl:h-[27rem]">
+          <img
+            className=""
+            loading="lazy"
+            data-testid="movie-poster"
+            src={`${imageUrl}${imagePath}`}
+            alt={title}
+          />
 
-        <button className="absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-stone-50/80 transition-all hover:scale-125">
-          <FaHeart />
-        </button>
-      </section>
+          <button className="absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-stone-50/80 transition-all hover:scale-125">
+            <FaHeart />
+          </button>
+        </section>
+      ) : (
+        <span
+          data-testid="movie-poster"
+          className="flex h-[30rem] w-full flex-col items-center justify-center border-2 border-red-400 p-4 text-center font-serif text-2xl font-extrabold lg:h-[22rem] xl:h-[27rem]"
+        >
+          <span>🚫</span> Sorry, no image was found.
+        </span>
+      )}
 
       <section className="flex w-full flex-col gap-2">
         <span
@@ -135,14 +143,14 @@ function MovieCard({ movie }) {
         <span className="flex w-full items-center justify-between font-normal">
           <span className="flex items-center gap-2">
             <img src="./images/imdb.png" alt="imdb" />
-            {`${avg * 10} / 100`}
+            {`${(avg * 10).toFixed(1)} / 100`}
           </span>
 
           <span className="flex items-center gap-1">
             <IconContext.Provider value={{ color: "orangered", size: "20px" }}>
               <GiTomato />
             </IconContext.Provider>
-            {`${Math.ceil((avg * popularity * 1000) / vote)}%`}
+            {`${Math.trunc(popularity)}%`}
           </span>
         </span>
         <span className="w-full text-lg font-normal leading-normal text-gray-400">

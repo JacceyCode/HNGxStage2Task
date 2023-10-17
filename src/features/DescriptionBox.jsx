@@ -1,3 +1,7 @@
+import { IconContext } from "react-icons";
+import { GiTomato } from "react-icons/gi";
+import { HiPlayCircle } from "react-icons/hi2";
+
 function DescriptionBox() {
   return (
     <aside className="flex w-2/3 flex-col items-start gap-3 sm:w-2/5 lg:w-4/12">
@@ -11,7 +15,10 @@ function DescriptionBox() {
         </span>
 
         <span className="flex items-center gap-2">
-          <img src="/images/rate.png" alt="rate" /> 97%
+          <IconContext.Provider value={{ color: "orangered", size: "20px" }}>
+            <GiTomato />
+          </IconContext.Provider>{" "}
+          97%
         </span>
       </span>
 
@@ -22,9 +29,7 @@ function DescriptionBox() {
       </p>
 
       <button className="flex w-40 items-center gap-2 rounded-md bg-rose-700 px-[0.3rem] py-4">
-        <span>
-          <img src="/images/Play.png" alt="play-icon" />
-        </span>
+        <HiPlayCircle />
         <span className="text-sm font-bold uppercase">Watch trailer</span>
       </button>
     </aside>
