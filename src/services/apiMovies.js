@@ -1,14 +1,18 @@
 export const imageUrl = "https://image.tmdb.org/t/p/original";
 
+// const auth = import.meta.env.VITE_MOVIE_KEY;
+
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: import.meta.env.VITE_MOVIE_KEY,
+    // Authorization: auth,
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjk5OTc2MmI2MjIyZGQyYzM1MWRjMjg4Mjg2NzE5MyIsInN1YiI6IjY0ZmUzZDEyZmE0MDQ2MDBlMTdlODdmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ee9TrqOrsNfxBUk0tK3VrHkMSiWxgkhqlGi9yn00OnI",
   },
 };
 
-export function getDetails(id) {
+export function getMovieDetails(id) {
   const res = fetch(
     `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
     options,

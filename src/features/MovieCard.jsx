@@ -1,38 +1,42 @@
 /* eslint-disable react/prop-types */
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaHeart } from "react-icons/fa6";
 import { GiTomato } from "react-icons/gi";
-import { Link } from "react-router-dom";
-// import { getDetails, imageUrl } from "../services/apiMovies";
-// import { useMovies } from "../services/MovieContext";
+import { getMovieDetails, imageUrl } from "../services/apiMovies";
+import { useMovies } from "../services/MovieContext";
 
-// function MovieCard({ movie }) {
-function MovieCard() {
-  // const navigate = useNavigate();
-  // const { setMovieData, setIsLoading } = useMovies();
-  // const {
-  //   title,
-  //   poster_path: imagePath,
-  //   release_date: date,
-  //   popularity,
-  //   id,
-  // } = movie;
+function MovieCard({ movie }) {
+  const navigate = useNavigate();
+  const { setMovieData, setIsLoading } = useMovies();
+  const {
+    title,
+    poster_path: imagePath,
+    release_date: date,
+    popularity,
+    id,
+    vote_average: avg,
+    vote_count: vote,
+  } = movie;
 
-  // async function loadMoviedetail(id) {
-  //   try {
-  //     setIsLoading(true);
-  //     navigate(`/movies/${id}`);
-  //     const res = await getDetails(id);
-  //     const data = await res.json();
-  //     setMovieData(data);
-  //     return data;
-  //   } catch {
-  //     // throw Error();
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }
+  async function loadMoviedetail(id) {
+    try {
+      setIsLoading(true);
+      const res = await getMovieDetails(id);
+      console.log(res);
+      // if (!res.ok) throw new Error();
+      const data = await res.json();
+      console.log(data);
+      setMovieData(data);
+      navigate(`/movies/${id}`);
+      return data;
+    } catch (err) {
+      alert(err.status_message);
+      // throw new Error(err.status_message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     // <Link
@@ -95,16 +99,21 @@ function MovieCard() {
     // </Link>
 
     <Link
-      // onClick={() => loadMoviedetail(id)}
-      to="/movies/2346"
+      onClick={() => loadMoviedetail(id)}
+      // to="/movies/2346"
       data-testid="movie-card"
       className="flex flex-col items-start gap-2"
     >
-      <section
-        className="flex h-[30rem] w-full items-start justify-end bg-[url('./images/MoviePoster.png')] bg-cover bg-center bg-no-repeat p-4 lg:h-[22rem] xl:h-[27rem]"
-        data-testid="movie-poster"
-      >
-        <button className="flex h-8 w-8 items-center justify-center rounded-full bg-white/50 text-xl text-zinc-50/80 transition-all hover:scale-125">
+      <section className="relative flex h-[30rem] w-full lg:h-[22rem] xl:h-[27rem]">
+        <img
+          className=""
+          loading="lazy"
+          data-testid="movie-poster"
+          src={`${imageUrl}${imagePath}`}
+          alt={title}
+        />
+
+        <button className="absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-stone-50/80 transition-all hover:scale-125">
           <FaHeart />
         </button>
       </section>
@@ -114,25 +123,26 @@ function MovieCard() {
           data-testid="movie-release-date"
           className="w-full text-lg font-medium leading-normal text-gray-600/50"
         >
-          {"USA, 2017"}
+          {date}
         </span>
         <h3
           data-testid="movie-title"
           className="w-full text-lg font-bold text-gray-900"
         >
-          {"Spider Man"}
+          {title}
         </h3>
 
         <span className="flex w-full items-center justify-between font-normal">
           <span className="flex items-center gap-2">
-            <img src="./images/imdb.png" alt="imdb" /> {123}
+            <img src="./images/imdb.png" alt="imdb" />
+            {`${avg * 10} / 100`}
           </span>
 
           <span className="flex items-center gap-1">
             <IconContext.Provider value={{ color: "orangered", size: "20px" }}>
               <GiTomato />
             </IconContext.Provider>
-            97%
+            {`${Math.ceil((avg * popularity * 1000) / vote)}%`}
           </span>
         </span>
         <span className="w-full text-lg font-normal leading-normal text-gray-400">

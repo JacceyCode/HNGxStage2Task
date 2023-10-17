@@ -18,8 +18,8 @@ function MovieProvider({ children }) {
       setIsLoading(true);
       const res = await getPopularMovies();
       const { results } = await res.json();
-      console.log(results);
-      const topResults = results.slice(0, 10);
+      const topResults = results.slice(0, 12);
+      console.log(topResults);
       setPopularMovies(topResults);
     }
     setIsLoading(false);
@@ -51,7 +51,7 @@ function MovieProvider({ children }) {
 function useMovies() {
   const context = useContext(MovieContext);
   if (context === undefined)
-    throw new Error("MovieContext was used outside of the MpvieProvider");
+    throw new Error("MovieContext was used outside of the MovieProvider");
   return context;
 }
 
