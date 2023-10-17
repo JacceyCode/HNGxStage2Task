@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import { useEffect, useState } from "react";
-import { useMovies } from "../services/MovieContext";
-import { getMovieTrailer } from "../services/apiMovies";
+import { useState } from "react";
+import { useMovies } from "../context/MovieContext";
+import { getMovieTrailer, movieTrailerUrl } from "../services/apiMovies";
 
 function PlayVideo() {
   const [key, setKey] = useState("");
@@ -15,11 +15,8 @@ function PlayVideo() {
     const data = await res.json();
     const { results } = data;
     const { key } = results[0];
-    // console.log(data);
-    // console.log(results[0]);
+    setKey(key);
     console.log(key);
-    // const src = `https://www.youtube.com/watch?v=${key}`;
-    // console.log(src);
     return key;
   }
   trailer();
@@ -30,10 +27,9 @@ function PlayVideo() {
         width="100%"
         className="rounded-3xl"
         height="100%"
-        src="https://www.youtube.com/embed/PLl99DlL6b4"
+        src={`${movieTrailerUrl}PLl99DlL6b4`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        // allowfullscreen
       ></iframe>
 
       {/* {path ? (

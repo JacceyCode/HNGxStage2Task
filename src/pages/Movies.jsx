@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { FaChevronRight } from "react-icons/fa6";
 import MovieCard from "../features/MovieCard";
 import SideNav from "../features/SideNav";
-import { useMovies } from "../services/MovieContext";
+import { useMovies } from "../context/MovieContext";
 import SearchMovies from "../ui/SearchMovies";
 import Menu from "../ui/Menu";
 import Logo from "../ui/Logo";

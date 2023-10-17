@@ -1,5 +1,3 @@
-export const imageUrl = "https://image.tmdb.org/t/p/original";
-
 const options = {
   method: "GET",
   headers: {
@@ -9,34 +7,45 @@ const options = {
   },
 };
 
-export function getMovieDetails(id) {
-  const res = fetch(
-    `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-    options,
-  );
-  return res;
-}
+export const imageUrl = "https://image.tmdb.org/t/p/original";
 
-export function getMovie(query) {
-  const res = fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
-    options,
-  );
-  return res;
-}
+export const movieTrailerUrl = "https://www.youtube.com/embed/";
 
-export function getPopularMovies() {
-  const res = fetch(
+export async function getPopularMovies() {
+  const res = await fetch(
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     options,
   );
-  return res;
+  const data = await res.json();
+  const { results } = data;
+  return results;
 }
 
-export function getMovieTrailer(movie_id) {
-  const res = fetch(
+export async function getMovie(query) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options,
+  );
+  const data = await res.json();
+  return data;
+}
+
+export async function getMovieDetails(id) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+    options,
+  );
+  const data = await res.json();
+  return data;
+}
+
+export async function getMovieTrailer(movie_id) {
+  const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,
     options,
   );
-  return res;
+  const data = await res.json();
+  const { results } = data;
+  const { key } = results[0];
+  return key;
 }

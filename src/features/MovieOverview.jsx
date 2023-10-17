@@ -1,5 +1,5 @@
 import { HiOutlineChevronDown } from "react-icons/hi";
-import { useMovies } from "../services/MovieContext";
+import { useMovies } from "../context/MovieContext";
 
 function MovieOverview() {
   const { movieData } = useMovies();

@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
-import { getPopularMovies } from "./apiMovies";
+import { getPopularMovies } from "../services/apiMovies";
 
 const MovieContext = createContext();
 
@@ -9,20 +9,26 @@ function MovieProvider({ children }) {
   const [popularMovies, setPopularMovies] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState([]);
   const [movieData, setMovieData] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [trailerKey, setTrailerKey] = useState();
+  const [isLoading, setIsLoading] = useState();
   const [query, setQuery] = useState("");
   const [searchError, setSearchError] = useState("");
 
   useEffect(function () {
     async function loadMovies() {
-      setIsLoading(true);
-      const res = await getPopularMovies();
-      const { results } = await res.json();
-      const topResults = results.slice(0, 12);
-      console.log(topResults);
-      setPopularMovies(topResults);
+      try {
+        setIsLoading(true);
+        const results = await getPopularMovies();
+        if (!results) throw new Error();
+        const topResults = results.slice(0, 12);
+        console.log(topResults);
+        setPopularMovies(topResults);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     }
-    setIsLoading(false);
     loadMovies();
   }, []);
 
@@ -32,12 +38,14 @@ function MovieProvider({ children }) {
         popularMovies,
         searchedMovie,
         movieData,
+        trailerKey,
         isLoading,
         query,
         searchError,
         setSearchError,
         setQuery,
         setIsLoading,
+        setTrailerKey,
         setMovieData,
         setPopularMovies,
         setSearchedMovie,
