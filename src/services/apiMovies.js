@@ -31,3 +31,11 @@ export function getPopularMovies() {
   );
   return res;
 }
+
+export function getMovieTrailer(movie_id) {
+  const res = fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,
+    options,
+  );
+  return res;
+}

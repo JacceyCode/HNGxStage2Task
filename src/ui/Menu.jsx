@@ -5,7 +5,7 @@ function Menu() {
   return (
     <section className="flex items-center gap-2">
       <Link
-        className="hidden sm:flex lg:text-2xl lg:font-extrabold lg:text-gray-100"
+        className="hidden font-sans font-semibold sm:flex lg:text-2xl lg:text-gray-100"
         to="#"
       >
         Sign in

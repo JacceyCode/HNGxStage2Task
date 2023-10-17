@@ -8,7 +8,7 @@ function Logo() {
         className="flex h-10 w-10 items-center justify-center rounded-full"
         alt="logo"
       />
-      <span className="hidden sm:flex lg:text-2xl lg:font-extrabold">
+      <span className="hidden font-sans font-semibold sm:flex lg:text-2xl">
         MovieBox
       </span>
     </Link>

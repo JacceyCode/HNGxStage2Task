@@ -96,12 +96,12 @@ function MovieCard() {
 
     <Link
       // onClick={() => loadMoviedetail(id)}
-      // to={`/movies/${id}`}
+      to="/movies/2346"
       data-testid="movie-card"
-      className="flex flex-col items-start"
+      className="flex flex-col items-start gap-2"
     >
       <section
-        className="flex h-[27rem] w-full items-start justify-end bg-[url('./images/MoviePoster.png')] bg-cover bg-center bg-no-repeat p-4 lg:h-[22rem] xl:h-[27rem]"
+        className="flex h-[30rem] w-full items-start justify-end bg-[url('./images/MoviePoster.png')] bg-cover bg-center bg-no-repeat p-4 lg:h-[22rem] xl:h-[27rem]"
         data-testid="movie-poster"
       >
         <button className="flex h-8 w-8 items-center justify-center rounded-full bg-white/50 text-xl text-zinc-50/80 transition-all hover:scale-125">
