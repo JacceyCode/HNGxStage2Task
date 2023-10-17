@@ -1,20 +1,42 @@
-import { HiPlay } from "react-icons/hi2";
+/* eslint-disable no-unused-vars */
+
+import { useEffect, useState } from "react";
 import { useMovies } from "../services/MovieContext";
-import { imageUrl } from "../services/apiMovies";
-import { IconContext } from "react-icons";
+import { getMovieTrailer } from "../services/apiMovies";
 
 function PlayVideo() {
-  const { movieData } = useMovies();
-  const { backdrop_path: path } = movieData;
+  const [key, setKey] = useState("");
+  const {
+    movieData: { id },
+  } = useMovies();
 
-  const src = `${imageUrl}${path}`;
+  async function trailer() {
+    const res = await getMovieTrailer(id);
+    const data = await res.json();
+    const { results } = data;
+    const { key } = results[0];
+    // console.log(data);
+    // console.log(results[0]);
+    console.log(key);
+    // const src = `https://www.youtube.com/watch?v=${key}`;
+    // console.log(src);
+    return key;
+  }
+  trailer();
+
   return (
     <main className="h-[20rem] md:h-[30rem]">
-      {/* <video className="h-full w-full rounded-2xl" controls>
-        <source src={src} type="video/mp4" />
-        Sorry, your browser does not support embedded videos.
-      </video> */}
-      {path ? (
+      <iframe
+        width="100%"
+        className="rounded-3xl"
+        height="100%"
+        src="https://www.youtube.com/embed/PLl99DlL6b4"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        // allowfullscreen
+      ></iframe>
+
+      {/* {path ? (
         <section className="relative flex items-center justify-center">
           <img
             className="h-[20rem] w-full rounded-2xl md:h-[30rem]"
@@ -37,9 +59,9 @@ function PlayVideo() {
         </section>
       ) : (
         <span className="flex h-full w-full items-center justify-center border-2 border-red-400 p-4 font-serif text-2xl font-extrabold">
-          <span>🚫</span> Sorry, no trailer video was found.
+          <span>🚫</span> Sorry! No video trailer was found.
         </span>
-      )}
+      )} */}
     </main>
   );
 }

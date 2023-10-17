@@ -18,6 +18,8 @@ function MovieCard({ movie }) {
     vote_average: avg,
   } = movie;
 
+  const utcYear = new Date(date).getUTCFullYear();
+
   async function loadMoviedetail(id) {
     try {
       setIsLoading(true);
@@ -38,65 +40,6 @@ function MovieCard({ movie }) {
   }
 
   return (
-    // <Link
-    //   onClick={() => loadMoviedetail(id)}
-    //   // to={`/movies/${id}`}
-    //   data-testid="movie-card"
-    //   className="mx-auto mb-14 flex w-fit flex-col items-start gap-2 duration-200 hover:scale-105 md:w-72"
-    // >
-    //   {imagePath ? (
-    //     <section className="relative w-full">
-    //       <img
-    //         className="h-[30rem] w-full"
-    //         loading="lazy"
-    //         data-testid="movie-poster"
-    //         src={`${imageUrl}${imagePath}`}
-    //         alt={title}
-    //       />
-
-    //       <button
-    //         className="absolute right-4 top-4 rounded-full bg-white
-    //       duration-300 hover:translate-y-2 hover:scale-150 hover:bg-rose-400"
-    //       >
-    //         <img className="w-8" src="./images/Heart.png" alt="heart-icon" />
-    //       </button>
-    //     </section>
-    //   ) : (
-    //     <span
-    //       data-testid="movie-poster"
-    //       className="flex h-[30rem] w-full items-center justify-center border-2 border-red-400 p-4 font-serif text-2xl font-extrabold"
-    //     >
-    //       <span>🚫</span> Sorry, no image was found.
-    //     </span>
-    //   )}
-    //   <span
-    //     data-testid="movie-release-date"
-    //     className="w-full text-lg font-medium leading-normal text-gray-600"
-    //   >
-    //     {date}
-    //   </span>
-    //   <h3
-    //     data-testid="movie-title"
-    //     className="w-full text-lg font-bold text-gray-900"
-    //   >
-    //     {title}
-    //   </h3>
-
-    //   <span className="flex w-full items-center justify-between font-normal">
-    //     <span className="flex items-center gap-2">
-    //       <img src="./images/imdb.png" alt="imdb" /> {popularity.toFixed(2)}
-    //     </span>
-
-    //     <span className="flex items-center gap-2">
-    //       <img src="./images/rate.png" alt="rate" /> 97%
-    //     </span>
-    //   </span>
-
-    //   <span className="w-full text-lg font-normal leading-normal text-gray-400">
-    //     Action, Adventure, Horror
-    //   </span>
-    // </Link>
-
     <Link
       onClick={() => loadMoviedetail(id)}
       // to="/movies/2346"
@@ -131,7 +74,7 @@ function MovieCard({ movie }) {
           data-testid="movie-release-date"
           className="w-full text-lg font-medium leading-normal text-gray-600/50"
         >
-          {date}
+          {utcYear}
         </span>
         <h3
           data-testid="movie-title"
