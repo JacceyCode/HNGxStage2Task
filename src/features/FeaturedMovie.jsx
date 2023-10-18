@@ -4,9 +4,10 @@ import { IconContext } from "react-icons";
 import { useMovies } from "../context/MovieContext";
 import MovieCard from "../features/MovieCard";
 import Loader from "./Loader";
+import SearchError from "../ui/SearchError";
 
 function FeaturedMovie() {
-  const { popularMovies, isLoading } = useMovies();
+  const { popularMovies, error, isLoading } = useMovies();
 
   return (
     <main className="flex w-full flex-col gap-14 px-1 lg:px-28">
@@ -30,11 +31,15 @@ function FeaturedMovie() {
             </Link>
           </section>
 
-          <section className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {popularMovies.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
-            ))}
-          </section>
+          {error ? (
+            <SearchError>{error}</SearchError>
+          ) : (
+            <section className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {popularMovies.map((movie) => (
+                <MovieCard movie={movie} key={movie.id} />
+              ))}
+            </section>
+          )}
         </>
       )}
     </main>

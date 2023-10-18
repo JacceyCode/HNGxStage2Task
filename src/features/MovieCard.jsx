@@ -1,15 +1,11 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaHeart } from "react-icons/fa6";
 import { GiTomato } from "react-icons/gi";
-import { getMovieDetails, imageUrl } from "../services/apiMovies";
-// import { useMovies } from "../context/MovieContext";
+import { imageUrl } from "../services/apiMovies";
 
 function MovieCard({ movie }) {
-  // const navigate = useNavigate();
-  // const { setMovieData, setIsLoading } = useMovies();
   const {
     title,
     poster_path: imagePath,
@@ -21,28 +17,8 @@ function MovieCard({ movie }) {
 
   const utcYear = new Date(date).getUTCFullYear();
 
-  // async function loadMoviedetail(id) {
-  //   try {
-  //     setIsLoading(true);
-  //     const res = await getMovieDetails(id);
-  //     console.log(res);
-  //     // if (!res.ok) throw new Error();
-  //     const data = await res.json();
-  //     console.log(data);
-  //     setMovieData(data);
-  //     navigate(`/movies/${id}`);
-  //     return data;
-  //   } catch (err) {
-  //     alert(err.status_message);
-  //     // throw new Error(err.status_message);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }
-
   return (
     <Link
-      // onClick={() => loadMoviedetail(id)}
       to={`/movies/${id}`}
       data-testid="movie-card"
       className="flex flex-col items-start gap-2"

@@ -11,14 +11,14 @@ function SearchMovies() {
     try {
       e.preventDefault();
       setIsLoading(true);
-      const res = await getMovie(query);
-      if (!res.ok) throw new Error("Sorry, Movie not found!");
-      const { results } = await res.json();
+      const { results } = await getMovie(query);
       console.log(results);
+      if (!results) throw new Error("Sorry, Movie not found!");
       const result = results.slice(0, 12);
       setSearchedMovie(result);
       navigate("/movies");
     } catch (err) {
+      console.log(err);
       throw new Error(err.message);
     } finally {
       setQuery("");

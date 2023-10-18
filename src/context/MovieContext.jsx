@@ -12,19 +12,20 @@ function MovieProvider({ children }) {
   const [trailerKey, setTrailerKey] = useState();
   const [isLoading, setIsLoading] = useState();
   const [query, setQuery] = useState("");
-  const [searchError, setSearchError] = useState("");
+  const [searchError, setSearchError] = useState();
+  const [error, setError] = useState();
 
   useEffect(function () {
     async function loadMovies() {
       try {
+        setError(false);
         setIsLoading(true);
         const results = await getPopularMovies();
         if (!results) throw new Error();
         const topResults = results.slice(0, 12);
-        console.log(topResults);
         setPopularMovies(topResults);
-      } catch (error) {
-        console.log(error.message);
+      } catch (err) {
+        setError(err.message);
       } finally {
         setIsLoading(false);
       }
@@ -41,6 +42,8 @@ function MovieProvider({ children }) {
         trailerKey,
         isLoading,
         query,
+        error,
+        setError,
         searchError,
         setSearchError,
         setQuery,
