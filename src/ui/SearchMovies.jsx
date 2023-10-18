@@ -11,15 +11,13 @@ function SearchMovies() {
     try {
       e.preventDefault();
       setIsLoading(true);
-      const { results } = await getMovie(query);
-      console.log(results);
-      if (!results) throw new Error("Sorry, Movie not found!");
+      const results = await getMovie(query);
+      if (!results) throw new Error();
       const result = results.slice(0, 12);
       setSearchedMovie(result);
-      navigate("/movies");
+      if (result) navigate("/movies");
     } catch (err) {
-      console.log(err);
-      throw new Error(err.message);
+      alert("No results found. Search another movie.");
     } finally {
       setQuery("");
       setIsLoading(false);

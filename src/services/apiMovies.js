@@ -27,12 +27,18 @@ export async function getPopularMovies() {
 }
 
 export async function getMovie(query) {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
-    options,
-  );
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+      options,
+    );
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const { results } = data;
+    return results;
+  } catch (err) {
+    throw new Error(err.message);
+  }
 }
 
 export async function getMovieDetails(id) {

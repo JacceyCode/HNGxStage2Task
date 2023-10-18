@@ -7,17 +7,15 @@
 
 - 🔭 I’m currently working on **MovieBox project**
 
-- 🌱 I’m currently learning **React and Tailwind CSS**
-
 - 📫 How to reach me **jaccey1234@gmail.com**
 
 ## Description
 
-📄 This project is carried out to test my knowledge of React with Vite and tailwind CSS.
-It is a simple project to search for Top Rated movies and any other preferred movie of your choice by searching using the moving title.
+📄 This project is carried out to test my knowledge of React-Vite and tailwind CSS.
+It is a simple project to search for Top Rated movies and any other preferred movie of your choice by searching with the movie title.
 You also get to read the review of the movie, watch the trailer, see the rating and many more.
-The details of each movie was gotten through an API endpoint from TMDB and displayed to the end user.
-I hope you find this project good enough for your use. Any ccontribution is also welcomed. Thanks.
+The details of each movie was gotten by consuming an API endpoint from TMDB using 'CRUD' method for RESTful API and the results are displayed to the user.
+I hope you find this project good enough for your use. Any contribution is also welcomed. Thanks.
 
 <h3 align="left">Connect with me on github: @JacceyCode</h3>
 <p align="left">
