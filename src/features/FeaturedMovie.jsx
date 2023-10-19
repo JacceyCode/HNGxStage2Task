@@ -10,7 +10,7 @@ function FeaturedMovie() {
   const { popularMovies, error, isLoading } = useMovies();
 
   return (
-    <main className="flex w-full flex-col gap-14 px-1 lg:px-28">
+    <main className="flex w-full flex-col gap-14 md:px-1 lg:px-28">
       {isLoading ? (
         <Loader />
       ) : (

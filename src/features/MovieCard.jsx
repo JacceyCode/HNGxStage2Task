@@ -21,7 +21,7 @@ function MovieCard({ movie }) {
     <Link
       to={`/movies/${id}`}
       data-testid="movie-card"
-      className="flex flex-col items-start gap-2"
+      className="mx-auto flex flex-col items-start gap-4"
     >
       {imagePath ? (
         <section className="relative flex h-[30rem] w-full lg:h-[22rem] xl:h-[27rem]">
