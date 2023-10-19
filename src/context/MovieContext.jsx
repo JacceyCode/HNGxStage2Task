@@ -14,6 +14,7 @@ function MovieProvider({ children }) {
   const [query, setQuery] = useState("");
   const [searchError, setSearchError] = useState();
   const [error, setError] = useState();
+  const [openNav, setOpenNav] = useState(false);
 
   useEffect(function () {
     async function loadMovies() {
@@ -45,6 +46,8 @@ function MovieProvider({ children }) {
         error,
         setError,
         searchError,
+        openNav,
+        setOpenNav,
         setSearchError,
         setQuery,
         setIsLoading,

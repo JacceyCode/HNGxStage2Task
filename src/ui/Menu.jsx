@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { HiMenuAlt4 } from "react-icons/hi";
+import { useMovies } from "../context/MovieContext";
 
 function Menu() {
+  const { setOpenNav } = useMovies();
+
   return (
     <section className="flex items-center gap-2">
       <Link
@@ -10,7 +13,10 @@ function Menu() {
       >
         Sign in
       </Link>
-      <button className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700">
+      <button
+        onClick={() => setOpenNav((openNav) => !openNav)}
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700"
+      >
         <HiMenuAlt4 />
       </button>
     </section>

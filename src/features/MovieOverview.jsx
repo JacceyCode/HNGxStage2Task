@@ -21,7 +21,7 @@ function MovieOverview() {
 
   const utcDate = new Date(date).getUTCFullYear();
   const hour = Math.trunc(runtime / 60);
-  const min = runtime - hour * 60;
+  const min = runtime % 60;
 
   return (
     <section className="flex flex-col">

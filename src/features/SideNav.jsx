@@ -27,6 +27,7 @@ function SideNav() {
           <HiOutlineHome />
           Home
         </NavLink>
+
         <NavLink
           to="/movies"
           className={({ isActive }) => (isActive ? activeFont + font : font)}
@@ -34,6 +35,7 @@ function SideNav() {
           <BsCameraReels />
           Movies
         </NavLink>
+
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? activeFont + font : font)}
@@ -41,6 +43,7 @@ function SideNav() {
           <PiMonitorPlay />
           TV Series
         </NavLink>
+
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? activeFont + font : font)}
