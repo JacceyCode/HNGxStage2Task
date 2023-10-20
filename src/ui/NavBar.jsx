@@ -10,12 +10,12 @@ import { PiMonitorPlay } from "react-icons/pi";
 
 function NavBar() {
   const font =
-    "font-serif pl-10 text-lg text-stone-500 w-full hover:bg-pink-100 h-[5rem] flex gap-3 justify-start items-center hover:border-e-rose-700 hover:border-e-4";
+    "font-serif pl-4 text-lg text-stone-500 w-full hover:bg-pink-100 h-[5rem] flex gap-3 justify-start items-center hover:border-e-rose-700 hover:border-e-4";
 
   const activeFont = "bg-pink-100 border-e-rose-700 border-e-4";
 
   return (
-    <nav className="flex flex-col items-center justify-between gap-1">
+    <nav className="flex flex-col items-center justify-between gap-4 lg:gap-1">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? activeFont + font : font)}

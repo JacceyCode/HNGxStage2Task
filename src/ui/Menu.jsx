@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import { HiMenuAlt4 } from "react-icons/hi";
 import { useMovies } from "../context/MovieContext";
+import { HiMenu } from "react-icons/hi";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Menu() {
-  const { setOpenNav } = useMovies();
+  const { openNav, setOpenNav } = useMovies();
 
   return (
-    <section className="flex items-center gap-2">
+    <section className="flex items-center gap-1 px-2 py-1">
       <Link
-        className="hidden font-sans font-semibold sm:flex lg:text-2xl lg:text-gray-100"
+        className="hidden font-sans font-semibold sm:flex lg:text-2xl lg:text-gray-800"
         to="#"
       >
         Sign in
@@ -16,9 +17,9 @@ function Menu() {
 
       <button
         onClick={() => setOpenNav((openNav) => !openNav)}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700 lg:hidden"
       >
-        <HiMenuAlt4 />
+        {openNav ? <AiOutlineClose /> : <HiMenu />}
       </button>
     </section>
   );

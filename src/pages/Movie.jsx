@@ -9,7 +9,7 @@ function Movie() {
   return (
     <section className="flex flex-col gap-2 lg:flex-row">
       <SideNav />
-      <span className="space-y-4 p-2 lg:p-8 lg:pl-60">
+      <span className="space-y-4 lg:p-8 lg:pl-60">
         <MobileHeader />
         <MovieDetails id={id} />
       </span>

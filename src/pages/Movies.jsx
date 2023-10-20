@@ -5,9 +5,6 @@ import MovieCard from "../features/MovieCard";
 import SideNav from "../features/SideNav";
 import { useMovies } from "../context/MovieContext";
 import MobileHeader from "../features/MobileHeader";
-// import SearchMovies from "../ui/SearchMovies";
-// import Menu from "../ui/Menu";
-// import Logo from "../ui/Logo";
 
 function Movies() {
   const { searchedMovie } = useMovies();
@@ -17,10 +14,9 @@ function Movies() {
       <section>
         <SideNav />
 
-        <section className="flex w-full flex-col gap-4 p-2 lg:p-8 lg:pl-60">
+        <section className="flex w-full flex-col gap-4 lg:p-8 lg:pl-60">
           <MobileHeader />
-
-          <section className=" flex flex-col gap-4">
+          <section className=" flex flex-col gap-4 px-2">
             <section className="flex items-center justify-between">
               <h2 className="text-xl font-bold leading-normal text-black md:text-2xl">
                 Your search result is here...

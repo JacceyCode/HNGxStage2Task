@@ -9,11 +9,11 @@ function MobileHeader() {
         <Logo />
       </span>
 
-      <span className="rounded-lg bg-pink-500">
+      <span className="rounded-lg bg-rose-700">
         <SearchMovies />
       </span>
 
-      <span className="rounded-lg lg:bg-pink-500">
+      <span>
         <Menu />
       </span>
     </section>

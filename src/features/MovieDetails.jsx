@@ -34,7 +34,7 @@ function MovieDetails({ id }) {
   );
 
   return (
-    <main className="flex w-full flex-col gap-6">
+    <main className="flex w-full flex-col gap-6 p-2">
       <PlayVideo />
       <MovieOverview />
     </main>
