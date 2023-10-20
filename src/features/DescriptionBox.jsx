@@ -28,10 +28,13 @@ function DescriptionBox() {
         the target of hit men and women everywhere.`}
       </p>
 
-      <button className="flex w-40 items-center gap-2 rounded-md bg-rose-700 px-[0.3rem] py-4">
+      <a
+        href="#featuredMovie"
+        className="flex w-40 items-center gap-2 rounded-md bg-rose-700 px-[0.3rem] py-4"
+      >
         <HiPlayCircle />
         <span className="text-sm font-bold uppercase">Watch trailer</span>
-      </button>
+      </a>
     </aside>
   );
 }

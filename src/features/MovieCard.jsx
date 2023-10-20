@@ -4,6 +4,7 @@ import { IconContext } from "react-icons";
 import { FaHeart } from "react-icons/fa6";
 import { GiTomato } from "react-icons/gi";
 import { imageUrl } from "../services/apiMovies";
+import { HiPlayCircle } from "react-icons/hi2";
 
 function MovieCard({ movie }) {
   const {
@@ -18,15 +19,15 @@ function MovieCard({ movie }) {
   const utcYear = new Date(date).getUTCFullYear();
 
   return (
-    <Link
-      to={`/movies/${id}`}
+    <section
+      // to={`/movies/${id}`}
       data-testid="movie-card"
       className="mx-auto flex flex-col items-start gap-4"
     >
       {imagePath ? (
         <section className="relative flex h-[30rem] w-full lg:h-[22rem] xl:h-[27rem]">
           <img
-            className=""
+            className="rounded-lg"
             loading="lazy"
             data-testid="movie-poster"
             src={`${imageUrl}${imagePath}`}
@@ -36,11 +37,19 @@ function MovieCard({ movie }) {
           <button className="absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-stone-50/80 transition-all hover:scale-125">
             <FaHeart />
           </button>
+
+          <Link
+            to={`/movies/${id}`}
+            className="absolute -bottom-4 right-0 flex w-full items-center justify-center gap-1 rounded-md bg-rose-700 px-[0.3rem] py-2 text-white"
+          >
+            <HiPlayCircle />
+            <span className="text-sm font-bold">Watch trailer</span>
+          </Link>
         </section>
       ) : (
         <span
           data-testid="movie-poster"
-          className="flex h-[30rem] w-full flex-col items-center justify-center border-2 border-red-400 p-4 text-center font-serif text-2xl font-extrabold lg:h-[22rem] xl:h-[27rem]"
+          className="flex h-[30rem] w-full flex-col items-center justify-center rounded-lg border-2 border-red-400 p-4 text-center font-serif text-2xl font-extrabold lg:h-[22rem] xl:h-[27rem]"
         >
           <span>🚫</span> Sorry, no image was found.
         </span>
@@ -53,6 +62,7 @@ function MovieCard({ movie }) {
         >
           {utcYear}
         </span>
+
         <h3
           data-testid="movie-title"
           className="w-full text-lg font-bold text-gray-900"
@@ -77,7 +87,7 @@ function MovieCard({ movie }) {
           Action, Adventure, Horror
         </span>
       </section>
-    </Link>
+    </section>
   );
 }
 

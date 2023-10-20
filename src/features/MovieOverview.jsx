@@ -30,8 +30,13 @@ function MovieOverview() {
       ) : (
         <>
           <section className="flex flex-wrap items-center justify-between gap-2 font-['Poppins'] text-xl font-medium text-zinc-800">
-            <span className="flex flex-wrap gap-2">
-              <span data-testid="movie-title">{title}</span>
+            <span className="flex flex-wrap items-center gap-2">
+              <span
+                className="text-2xl font-semibold uppercase"
+                data-testid="movie-title"
+              >
+                {title}
+              </span>
               <span>&middot;</span>
               <span data-testid="movie-release-date">{utcDate}</span>
               <span>&middot;</span>
@@ -58,7 +63,7 @@ function MovieOverview() {
               data-testid="movie-overview"
               className="mt-6 w-full space-y-4 md:w-[70%]"
             >
-              <p className="font-['Poppins'] text-lg font-semibold text-zinc-800">
+              <p className="text-md font-['Poppins'] font-medium text-zinc-800">
                 {tagline}
               </p>
               <p className="font-['Poppins'] text-xl font-normal text-zinc-800">
