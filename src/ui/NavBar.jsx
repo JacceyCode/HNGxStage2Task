@@ -15,7 +15,8 @@ function NavBar() {
   const font =
     "font-serif pl-4 text-lg text-stone-500 w-full hover:bg-pink-100 h-[5rem] flex gap-3 justify-start items-center hover:border-e-rose-700 hover:border-e-4";
 
-  const activeFont = "bg-pink-100 border-e-rose-700 border-e-4";
+  // const activeFont = "bg-pink-100 border-e-rose-700 border-e-4";
+  const activeFont = "";
 
   return (
     <nav
@@ -39,7 +40,7 @@ function NavBar() {
       </NavLink>
 
       <NavLink
-        to="/"
+        // to="#"
         className={({ isActive }) => (isActive ? activeFont + font : font)}
       >
         <PiMonitorPlay />
@@ -47,7 +48,7 @@ function NavBar() {
       </NavLink>
 
       <NavLink
-        to="/"
+        // to="#"
         className={({ isActive }) => (isActive ? activeFont + font : font)}
       >
         <HiOutlineCalendar />
@@ -57,7 +58,7 @@ function NavBar() {
       <QuizBox />
 
       <NavLink
-        to="/"
+        // to="#"
         className={({ isActive }) => (isActive ? activeFont + font : font)}
       >
         <HiOutlineLogout />
