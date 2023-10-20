@@ -9,7 +9,7 @@ function Menu() {
   return (
     <section className="flex items-center gap-1 px-2 py-1">
       <Link
-        className="hidden font-sans font-semibold sm:flex lg:text-2xl lg:text-gray-800"
+        className="hidden rounded-full bg-red-700 px-3 py-1 font-sans font-semibold lg:flex lg:text-2xl lg:text-white"
         to="#"
       >
         Sign in
@@ -17,7 +17,7 @@ function Menu() {
 
       <button
         onClick={() => setOpenNav((openNav) => !openNav)}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700 lg:hidden"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700 transition-all duration-300 ease-linear lg:hidden"
       >
         {openNav ? <AiOutlineClose /> : <HiMenu />}
       </button>

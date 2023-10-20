@@ -12,7 +12,7 @@ function FeaturedMovie() {
   return (
     <main
       id="featuredMovie"
-      className="flex w-full flex-col gap-14 md:px-1 lg:px-28"
+      className="flex w-full flex-col gap-14 pt-4 md:px-1 lg:px-28"
     >
       {isLoading ? (
         <Loader />
