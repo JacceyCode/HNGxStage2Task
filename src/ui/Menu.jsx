@@ -13,6 +13,7 @@ function Menu() {
       >
         Sign in
       </Link>
+
       <button
         onClick={() => setOpenNav((openNav) => !openNav)}
         className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-700"

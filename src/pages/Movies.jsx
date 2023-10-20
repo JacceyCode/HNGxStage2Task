@@ -4,9 +4,10 @@ import { FaChevronRight } from "react-icons/fa6";
 import MovieCard from "../features/MovieCard";
 import SideNav from "../features/SideNav";
 import { useMovies } from "../context/MovieContext";
-import SearchMovies from "../ui/SearchMovies";
-import Menu from "../ui/Menu";
-import Logo from "../ui/Logo";
+import MobileHeader from "../features/MobileHeader";
+// import SearchMovies from "../ui/SearchMovies";
+// import Menu from "../ui/Menu";
+// import Logo from "../ui/Logo";
 
 function Movies() {
   const { searchedMovie } = useMovies();
@@ -17,19 +18,7 @@ function Movies() {
         <SideNav />
 
         <section className="flex w-full flex-col gap-4 p-2 lg:p-8 lg:pl-60">
-          <section className="flex items-center justify-between">
-            <span className="lg:hidden">
-              <Logo />
-            </span>
-
-            <span className="rounded-lg bg-pink-500">
-              <SearchMovies />
-            </span>
-
-            <span className="rounded-lg lg:bg-pink-500">
-              <Menu />
-            </span>
-          </section>
+          <MobileHeader />
 
           <section className=" flex flex-col gap-4">
             <section className="flex items-center justify-between">

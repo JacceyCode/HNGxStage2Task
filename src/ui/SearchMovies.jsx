@@ -33,7 +33,7 @@ function SearchMovies() {
       <input
         className="w-full bg-transparent outline-none  placeholder:text-sm placeholder:font-thin placeholder:text-white md:placeholder:text-lg md:placeholder:font-normal"
         type="text"
-        placeholder="Search your movie"
+        placeholder="Search your movie here"
         name="movie"
         value={query}
         onChange={(e) => setQuery(e.target.value)}

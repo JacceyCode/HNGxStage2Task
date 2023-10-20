@@ -20,7 +20,6 @@ function MovieCard({ movie }) {
 
   return (
     <section
-      // to={`/movies/${id}`}
       data-testid="movie-card"
       className="mx-auto flex flex-col items-start gap-4"
     >

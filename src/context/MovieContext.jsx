@@ -14,7 +14,7 @@ function MovieProvider({ children }) {
   const [query, setQuery] = useState("");
   const [searchError, setSearchError] = useState();
   const [error, setError] = useState();
-  const [openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = useState();
 
   useEffect(function () {
     async function loadMovies() {
