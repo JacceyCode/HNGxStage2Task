@@ -76,7 +76,7 @@ function MovieCard({ movie }) {
           </span>
 
           <span className="flex items-center gap-1">
-            <IconContext.Provider value={{ color: "orangered", size: "20px" }}>
+            <IconContext.Provider value={{ color: "red", size: "20px" }}>
               <GiTomato />
             </IconContext.Provider>
             {`${Math.trunc(popularity)}%`}
