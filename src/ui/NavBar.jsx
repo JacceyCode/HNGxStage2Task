@@ -7,11 +7,8 @@ import {
 } from "react-icons/hi";
 import { BsCameraReels } from "react-icons/bs";
 import { PiMonitorPlay } from "react-icons/pi";
-// import { useMovies } from "../context/MovieContext";
 
 function NavBar() {
-  // const { setOpenNav } = useMovies();
-
   const font =
     "font-serif pl-4 text-lg text-stone-500 w-full hover:bg-pink-100 h-[5rem] flex gap-3 justify-start items-center hover:border-e-rose-700 hover:border-e-4";
 
@@ -19,10 +16,7 @@ function NavBar() {
   const activeFont = "";
 
   return (
-    <nav
-      // onClick={() => setOpenNav((openNav) => !openNav)}
-      className="flex flex-col items-center justify-between gap-2 lg:gap-1"
-    >
+    <nav className="flex flex-col items-center justify-between gap-2 lg:gap-1">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? activeFont + font : font)}

@@ -5,8 +5,12 @@ import { FaHeart } from "react-icons/fa6";
 import { GiTomato } from "react-icons/gi";
 import { imageUrl } from "../services/apiMovies";
 import { HiPlayCircle } from "react-icons/hi2";
+import { useState } from "react";
 
 function MovieCard({ movie }) {
+  const [favourite, setFavourite] = useState(false);
+  const color = favourite ? "red-700" : "white";
+
   const {
     title,
     poster_path: imagePath,
@@ -33,7 +37,10 @@ function MovieCard({ movie }) {
             alt={title}
           />
 
-          <button className="absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-stone-50/80 transition-all hover:scale-125">
+          <button
+            onClick={() => setFavourite((add) => !add)}
+            className={`absolute right-1 m-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-600/90 text-xl text-${color} transition-all hover:scale-125`}
+          >
             <FaHeart />
           </button>
 

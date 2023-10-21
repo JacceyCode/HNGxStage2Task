@@ -10,7 +10,7 @@ function Movies() {
   const { searchedMovie } = useMovies();
 
   return (
-    <main className="font-sans">
+    <main className="min-h-screen font-sans">
       <section>
         <SideNav />
 
