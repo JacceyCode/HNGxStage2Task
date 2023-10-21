@@ -1,8 +1,15 @@
+import { useEffect } from "react";
 import { useMovies } from "../context/MovieContext";
 import NavBar from "./NavBar";
 
 function MobileNav() {
   const { openNav, setOpenNav } = useMovies();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 400 && setOpenNav(false);
+    });
+  }, [setOpenNav]);
 
   return (
     <>
