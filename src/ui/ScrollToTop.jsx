@@ -20,7 +20,7 @@ function ScrollToTop() {
     <>
       {showTopBtn && (
         <FaArrowUpLong
-          className="fixed bottom-2 right-1 z-10 mx-auto h-8 w-8 animate-bounce cursor-pointer rounded-full border-4 border-black bg-red-700 p-1 hover:border-red-700 hover:bg-black hover:text-red-700 lg:right-8 lg:h-12 lg:w-12"
+          className="fixed bottom-2 right-1 z-10 mx-auto h-8 w-8 animate-bounce cursor-pointer rounded-full border-4 border-black p-1 hover:border-red-700 hover:text-red-700 lg:right-8 lg:h-12 lg:w-12"
           onClick={goToTop}
         />
       )}
