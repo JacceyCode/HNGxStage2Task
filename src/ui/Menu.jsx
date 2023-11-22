@@ -9,7 +9,7 @@ function Menu() {
   return (
     <section className="flex items-center gap-1 px-2 py-1">
       <Link
-        className="hidden rounded-full bg-red-700 px-3 py-1 font-sans font-semibold lg:flex lg:text-2xl lg:text-white"
+        className="hidden rounded-lg bg-red-700 px-3 py-1 font-sans font-semibold lg:flex lg:text-2xl lg:text-white"
         to="#"
       >
         Sign in
